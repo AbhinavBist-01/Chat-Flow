@@ -64,7 +64,7 @@ model Message{
   role MessageRole
   content String? @db.Text
   status MessageStatus @default(SUCCESS)
-  parts Json
+  parts Json?
   metaData Json?
   parentMessageId String?
   createdAt DateTime @default(now())
