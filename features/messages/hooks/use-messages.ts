@@ -8,7 +8,7 @@ import {
   deleteMessage,
   listMessages,
   updateMessage,
-} from "@/features/messages/action/message-action";
+} from "@/features/messages/actions/message-action";
 
 /** Load messages for one conversation. */
 export function useMessages(conversationId: string | undefined) {

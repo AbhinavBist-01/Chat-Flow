@@ -1,6 +1,6 @@
 "use server";
 
-import { requireUser } from "@/features/auth/action/require-user";
+import { requireUser } from "@/features/auth/actions/require-user";
 import { prisma } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
@@ -13,6 +13,12 @@ export type ConversationListItem = {
   createdAt: Date;
   updatedAt: Date;
 };
+
+export async function getConversation(conversationId: string) {
+  const user = await requireUser();
+
+  return assertOwnsConversation(conversationId, user.id);
+}
 
 export async function listConversations(): Promise<ConversationListItem[]> {
   const user = await requireUser();
