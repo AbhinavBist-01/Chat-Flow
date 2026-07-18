@@ -59,14 +59,18 @@ export const ConversationView = ({
 
   return (
     <div className="flex h-full min-h-0 flex-1 flex-col">
-      <header className="flex h-14 shrink-0 items-center gap-2 border-b px-3">
+      <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border/40 bg-background/50 px-4 backdrop-blur-md">
         <SidebarTrigger />
-        <Separator orientation="vertical" className="mx-1 h-4" />
-        <h1 className="truncate text-sm font-medium">{title}</h1>
+        <Separator orientation="vertical" className="mx-1 h-4 bg-border/60" />
+        <h1 className="truncate text-xs font-semibold uppercase tracking-wider text-muted-foreground">{title}</h1>
       </header>
 
       {messages.length === 0 ? (
-        <ChatEmpty />
+        <ChatEmpty
+          onSelectPrompt={(text) => {
+            void sendMessage({ text });
+          }}
+        />
       ) : (
         <ChatMessages messages={messages} status={status} />
       )}

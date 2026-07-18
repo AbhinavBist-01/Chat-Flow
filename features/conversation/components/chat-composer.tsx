@@ -65,7 +65,7 @@ export function ChatComposer({
       onSubmit={(event) => void handleSubmit(event)}
       className={cn("mx-auto w-full max-w-3xl px-4 pb-4 md:px-6", className)}
     >
-      <InputGroup className="h-auto min-h-14 rounded-3xl border-border/80 bg-background shadow-sm dark:bg-input/40">
+      <InputGroup className="h-auto min-h-14 rounded-2xl border border-border/80 bg-background/50 dark:bg-black/40 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-border/100 focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/10">
         <InputGroupTextarea
           ref={textareaRef}
           value={value}
@@ -74,23 +74,27 @@ export function ChatComposer({
           placeholder={placeholder}
           disabled={isSending}
           rows={1}
-          className="max-h-48 min-h-12 py-3.5 pl-4 text-[15px] leading-relaxed"
+          className="max-h-48 min-h-12 py-3.5 pl-4 text-[15px] leading-relaxed text-foreground placeholder:text-muted-foreground/60"
         />
         <InputGroupAddon align="inline-end" className="pr-2 pb-2 self-end">
           <InputGroupButton
             type="submit"
             size="icon-sm"
-            variant="default"
             disabled={!canSend}
-            className="size-9 rounded-full"
+            className={cn(
+              "size-8 rounded-full transition-all duration-250",
+              canSend 
+                ? "bg-primary text-primary-foreground shadow-[0_0_12px_rgba(0,114,245,0.3)] hover:bg-primary/95 hover:scale-105 active:scale-95" 
+                : "bg-secondary text-muted-foreground/40 opacity-70"
+            )}
             aria-label="Send message"
           >
-            {isSending ? <Spinner /> : <ArrowUpIcon />}
+            {isSending ? <Spinner className="size-4 text-primary-foreground" /> : <ArrowUpIcon className="size-4" />}
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
-      <p className="mt-2 text-center text-xs text-muted-foreground">
-        ChaiGPT can make mistakes. Check important info.
+      <p className="mt-2.5 text-center text-[10.5px] font-medium tracking-wide text-muted-foreground/50 uppercase">
+        ChaiGPT Dev Mode • Press Enter to Send
       </p>
     </form>
   );

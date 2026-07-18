@@ -3,7 +3,8 @@ import {
   saveChatMessages,
 } from "@/features/ai/actions/chat-store";
 import { getChatModel } from "@/features/ai/utils/model";
-import { requireUser } from "@/features/auth/action/require-user";
+import { webSearchTool } from "@/features/ai/utils/web-search";
+import { requireUser } from "@/features/auth/actions/require-user";
 import { prisma } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import {
@@ -60,8 +61,13 @@ export async function POST(req: Request) {
   const result = streamText({
     model: getChatModel(conversation.model),
     system:
-      conversation.systemPrompt ?? "You are ChaiGpt , a helpful assistant",
+      conversation.systemPrompt ??
+      "You are ChatFlow , a helpful assistant, friendly and concise. Do not annswer hateful, illegal, or sexually explicit content. Do not provide medical, legal, or financial advice.",
     messages: await convertToModelMessages(messages),
+    tools: {
+      webSearch: webSearchTool,
+    },
+    maxSteps: 5,
   });
 
   result.consumeStream();

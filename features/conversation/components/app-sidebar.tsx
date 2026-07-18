@@ -63,24 +63,30 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" variant="inset">
-      <SidebarHeader className="gap-2">
+      <SidebarHeader className="gap-2 px-3 pt-3">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
               size="lg"
-              className="font-semibold tracking-tight"
+              className="font-semibold tracking-tight hover:bg-transparent"
               render={<Link href="/" />}
             >
-              <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-sm text-primary-foreground">
+              <span className="flex size-8 items-center justify-center rounded-lg border border-primary/30 bg-black text-sm font-mono text-primary shadow-[0_0_12px_rgba(0,114,245,0.15)] group-data-[collapsible=icon]:mr-0">
                 C
               </span>
-              <span>ChaiGPT</span>
+              <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-sm font-bold tracking-tight text-transparent">
+                ChaiGPT
+              </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton tooltip="New chat" render={<Link href="/" />}>
-              <PlusIcon />
-              <span>New chat</span>
+          <SidebarMenuItem className="mt-2">
+            <SidebarMenuButton 
+              tooltip="New chat" 
+              render={<Link href="/" />}
+              className="border border-border/60 hover:border-primary/50 hover:bg-secondary/40 transition-all duration-200"
+            >
+              <PlusIcon className="text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+              <span className="font-medium text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-200">New chat</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -176,7 +182,12 @@ function ChatItem({
         isActive={isActive}
         tooltip={conversation.title}
         render={<Link href={`/c/${conversation.id}`} />}
-        className={cn(isActive && "font-medium")}
+        className={cn(
+          "transition-all duration-150 rounded-md",
+          isActive 
+            ? "font-semibold text-primary bg-primary/10 hover:bg-primary/15 border-l-2 border-primary pl-2 rounded-l-none" 
+            : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+        )}
       >
         <span className="truncate">{conversation.title}</span>
       </SidebarMenuButton>
