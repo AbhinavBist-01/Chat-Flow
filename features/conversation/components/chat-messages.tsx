@@ -150,8 +150,12 @@ export function ChatMessages({ messages, status }: ChatMessagesProps) {
               <Message align="start">
                 <MessageContent>
                   <Bubble variant="muted">
-                    <BubbleContent className="flex items-center justify-center p-3.5 rounded-2xl border border-border/30 bg-card">
-                      <Spinner className="size-4 text-primary" />
+                    <BubbleContent className="flex items-center justify-center px-4 py-3 rounded-2xl border border-border/30 bg-card">
+                      <div className="flex items-center gap-1.5 py-1">
+                        <div className="size-2 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]" />
+                        <div className="size-2 rounded-full bg-primary/70 animate-bounce [animation-delay:-0.15s]" />
+                        <div className="size-2 rounded-full bg-primary/40 animate-bounce" />
+                      </div>
                     </BubbleContent>
                   </Bubble>
                 </MessageContent>

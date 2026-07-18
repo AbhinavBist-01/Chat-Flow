@@ -26,7 +26,7 @@ type ChatComposerProps = {
 export function ChatComposer({
   onSend,
   isSending = false,
-  placeholder = "Message ChaiGPT…",
+  placeholder = "Message ChatFlow…",
   className,
   autoFocus = false,
 }: ChatComposerProps) {
@@ -94,7 +94,7 @@ export function ChatComposer({
         </InputGroupAddon>
       </InputGroup>
       <p className="mt-2.5 text-center text-[10.5px] font-medium tracking-wide text-muted-foreground/50 uppercase">
-        ChaiGPT Dev Mode • Press Enter to Send
+        ChatFlow Dev Mode • Press Enter to Send
       </p>
     </form>
   );

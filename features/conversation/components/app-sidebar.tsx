@@ -71,11 +71,33 @@ export function AppSidebar() {
               className="font-semibold tracking-tight hover:bg-transparent"
               render={<Link href="/" />}
             >
-              <span className="flex size-8 items-center justify-center rounded-lg border border-primary/30 bg-black text-sm font-mono text-primary shadow-[0_0_12px_rgba(0,114,245,0.15)] group-data-[collapsible=icon]:mr-0">
-                C
+              <span className="flex size-8 items-center justify-center rounded-lg border border-primary/30 bg-black shadow-[0_0_12px_rgba(0,114,245,0.15)] group-data-[collapsible=icon]:mr-0 overflow-hidden">
+                <svg className="size-5 text-primary" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="logoGradMin" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0072F5" />
+                      <stop offset="100%" stopColor="#00D2FF" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M15,50 Q32.5,20 50,50 T85,50"
+                    stroke="url(#logoGradMin)"
+                    strokeWidth="9"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M15,50 Q32.5,80 50,50 T85,50"
+                    stroke="url(#logoGradMin)"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    fill="none"
+                    opacity="0.4"
+                  />
+                </svg>
               </span>
               <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-sm font-bold tracking-tight text-transparent">
-                ChaiGPT
+                ChatFlow
               </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
