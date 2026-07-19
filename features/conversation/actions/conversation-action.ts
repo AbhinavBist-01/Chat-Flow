@@ -25,7 +25,7 @@ export async function listConversations(): Promise<ConversationListItem[]> {
 
   return prisma.conversation.findMany({
     where: { userId: user.id, isArchived: false },
-    orderBy: { isPinned: "desc", lastMessageAt: "desc" },
+    orderBy: [{ isPinned: "desc" }, { lastMessageAt: "desc" }],
     select: {
       id: true,
       title: true,

@@ -12,6 +12,7 @@ import {
   createIdGenerator,
   createUIMessageStream,
   createUIMessageStreamResponse,
+  isStepCount,
   streamText,
   toUIMessageStream,
   type UIMessage,
@@ -62,12 +63,12 @@ export async function POST(req: Request) {
     model: getChatModel(conversation.model),
     system:
       conversation.systemPrompt ??
-      "You are ChatFlow , a helpful assistant, friendly and concise. Do not annswer hateful, illegal, or sexually explicit content. Do not provide medical, legal, or financial advice.",
+      "You are ChatFlow, a helpful assistant, friendly and concise. Do not answer hateful, illegal, or sexually explicit content. Do not provide medical, legal, or financial advice.",
     messages: await convertToModelMessages(messages),
     tools: {
       webSearch: webSearchTool,
     },
-    maxSteps: 5,
+    stopWhen: isStepCount(5),
   });
 
   result.consumeStream();
