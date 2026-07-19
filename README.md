@@ -17,7 +17,7 @@
 - **🎨 Vercel Black & Blue Theme**: Dark-mode interface featuring pitch-black backgrounds (`#000000`), translucent header bars, glowing active rings, and high-contrast typography.
 - **🌊 Custom Flow Animations**: Custom animated dual-wave SVG logo representing real-time streams of logic, complete with breathing glow filters.
 - **💻 Markdown Engine with Code Blocks**: Integrated lightweight React markdown parser rendering formatted paragraphs, bold highlights, inline code, and dark code editor blocks (`#0e0e0e`) equipped with language tags and one-click copy functionality.
-- **💬 Interactive Prompt Suggestions**: Homepage dashboard cards (*"Explain Codebase"*, *"Optimize Performance"*, *"Generate Test Suites"*, *"Draft SQL Schema"*) with uppercase tags (`ANALYSIS`, `TUNING`, `QUALITY`, `ARCHITECTURE`) that execute instantly upon click.
+- **💬 Interactive Prompt Suggestions**: Homepage dashboard cards (_"Explain Codebase"_, _"Optimize Performance"_, _"Generate Test Suites"_, _"Draft SQL Schema"_) with uppercase tags (`ANALYSIS`, `TUNING`, `QUALITY`, `ARCHITECTURE`) that execute instantly upon click.
 - **🟢 Organic Bouncing Dot Loader**: Dynamic three-dot glowing blue typing indicator reflecting AI thinking states.
 - **🔒 Authentication & Storage**: User authentication powered by Clerk and persistent message store using Prisma with PostgreSQL.
 - **📱 Responsive Sidebar**: Collapsible sidebar with active conversation indicators featuring a Vercel Blue left border and background highlights.
@@ -26,16 +26,16 @@
 
 ## 🛠️ Tech Stack
 
-| Category | Technology |
-| :--- | :--- |
-| **Framework** | Next.js 16 (App Router) |
-| **Runtime & Package Manager** | Bun / Node.js |
-| **Styling & Components** | Tailwind CSS v4, Base UI, Shadcn UI primitives, Lucide Icons |
-| **Fonts** | Geist Sans & Geist Mono |
-| **AI Integration** | Vercel AI SDK (`ai`, `@ai-sdk/openai`, `@ai-sdk/react`) |
-| **Authentication** | Clerk (`@clerk/nextjs`) |
-| **Database & ORM** | PostgreSQL, Prisma (`@prisma/client`, `@prisma/adapter-pg`) |
-| **State Management** | TanStack React Query v5 |
+| Category                      | Technology                                                   |
+| :---------------------------- | :----------------------------------------------------------- |
+| **Framework**                 | Next.js 16 (App Router)                                      |
+| **Runtime & Package Manager** | Bun / Node.js                                                |
+| **Styling & Components**      | Tailwind CSS v4, Base UI, Shadcn UI primitives, Lucide Icons |
+| **Fonts**                     | Geist Sans & Geist Mono                                      |
+| **AI Integration**            | Vercel AI SDK (`ai`, `@ai-sdk/openai`, `@ai-sdk/react`)      |
+| **Authentication**            | Clerk (`@clerk/nextjs`)                                      |
+| **Database & ORM**            | PostgreSQL, Prisma (`@prisma/client`, `@prisma/adapter-pg`)  |
+| **State Management**          | TanStack React Query v5                                      |
 
 ---
 
@@ -132,7 +132,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - `bun lint`: Executes ESLint code quality checks.
 
 ---
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for details.
